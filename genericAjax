@@ -1,0 +1,61 @@
+/**
+* This function is for call ajax generic
+* development by Diego Loachamin
+*/
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+function callAjax(type, url, parameters, successCallback) {
+
+    $.ajax({
+        type: type,
+        url: url,
+        data: JSON.stringify(parameters),
+        contentType: 'application/json;',
+        dataType: 'json',
+        success: successCallback,
+        error: function(jqXHR, textStatus, errorThrown) {
+        if (jqXHR.status === 0) {
+          alert('Not connect: Verify Network');
+
+          } else if (jqXHR.status == 404) {
+
+            alert('Requested page not found [404] ");
+
+          } else if (jqXHR.status == 500) {
+
+            alert('Internal Server Error [500]');
+
+          } else if (textStatus === 'parsererror') {
+
+            alert('Requested JSON parse failed.');
+
+          } else if (textStatus === 'timeout') {
+
+          alert('Time out error');
+
+          } else if (textStatus === 'abort') {
+            alert('Ajax request aborted.');
+
+          } else {
+          alert('Uncaught Error: ' + jqXHR.responseText);
+      }//end if 
+    });
+}//end function CallMethod
+</script>
+
+//example how use
+
+//define the parameters
+  parameters={
+    postId:1,
+  }
+  
+//how call ajax function
+  CallMethod('POST','example/url.com/post', parameters, onSuccess);
+  
+//exammple success function
+  function onSuccess(data) {
+    console.log('Data is: '+data);
+  }//end function onSuccess
+
