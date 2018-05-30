@@ -1,2 +1,2 @@
 # helpers
-Helpers for developments
+Helpers to Developers 
