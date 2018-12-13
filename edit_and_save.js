@@ -1,3 +1,5 @@
+/* Custom buttons for JQgrid */
+
 //first need instance your custom button
 { name: "btn_edit", formatter: buttonEditFormatter, width: 30, align:'center'},
 { name: "btn_save", formatter: buttonSaveFormatter, width: 30, align:'center'}
