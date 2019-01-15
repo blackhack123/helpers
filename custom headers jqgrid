@@ -1,0 +1,37 @@
+//create custom header with style span badge bg-green
+//reference style: http://concisecss.com/archive/v2.0.0/add-ons/badges-labels/
+//we need declared the structure jqgrid:
+ $("#jqGrid").jqGrid({
+    datatype: "local",
+    data: mydata,
+    height: 250,
+    width: 780,
+    colModel: [
+        { label: ' ', name: 'id', width: 75, title:false },
+        { label: ' ', name: 'col1', width: 75,title:false },
+        { label: 'Date', name: 'invdate', width: 90 },
+        { label: 'Client', name: 'name', width: 100 },
+        { label: 'Amount', name: 'amount', width: 80 },
+        { label: 'Tax', name: 'tax', width: 80 },
+        { label: 'Total', name: 'total', width: 80 },
+        { label: 'Notes', name: 'note', width: 150 }
+    ],
+    viewrecords: true, // show the current page, data rang and total records on the toolbar
+    caption: "Load jqGrid through Javascript Array",
+});
+//here you add the custom class with jquery:
+$(".ui-jqgrid-sortable").each(function(i) {
+   if(i>1){
+        $(this).css({
+            'display': "inline-block",
+            'background-color':"#00a65a",
+            'padding': "3px 7px",
+            'font-size': "12px",
+            'font-weight': "700",
+            'line-height': "1",
+            'border-radius': "10px"
+        });
+
+   }
+  });
+//in this case apply the style from the column name 'invdate', this you can set on the condition if .
